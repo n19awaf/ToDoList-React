@@ -31,6 +31,13 @@ function App() {
       console.log(todos)
     }
 
+    const deleteTodo = (deleteTodoRowNumber) => {
+      let filtered = todos.filter(function (value) {
+        return value.rowNumber !== deleteTodoRowNumber;
+      });
+      setTodos(filtered);
+    }
+
 
 
 
@@ -41,7 +48,7 @@ function App() {
           <h3>Your Todo's</h3>
         </div>
         <div className='card-body'>
-          <TodoTable todos={todos}/>
+          <TodoTable todos={todos} deleteTodo={deleteTodo}/>
           <button className='btn btn-primary' onClick={addTodo}>
             Add new todo
             </button>
